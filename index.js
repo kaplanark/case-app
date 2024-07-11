@@ -13,8 +13,8 @@ import { NAV_THEME } from "~/constants/navTheme";
 import { useColorScheme } from "~/hooks/useColorScheme";
 import { PortalHost } from "@rn-primitives/portal";
 
-import HomeScreen from "./screens/HomeScreen";
-import DetailsScreen from "./screens/DetailsScreen";
+import HomeScreen from "~/screens/home";
+import DetailsScreen from "~/screens/detail";
 import React from "react";
 
 const LIGHT_THEME: Theme = {
