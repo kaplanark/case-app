@@ -1,0 +1,1 @@
+export type SortOptions = "new" | "old" | "rate" | "random";
