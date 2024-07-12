@@ -14,7 +14,7 @@ export interface Entry {
     description: string,
     programType: string,
     images: {
-        PosterArt: {
+        ['Poster Art']: {
             url: string
         }
     },
