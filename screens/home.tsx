@@ -15,7 +15,7 @@ export function HomeScreen({navigation}: { navigation: any; }): React.ReactEleme
                         <Card.CardContent className="p-0">
                             <Image
                                 style={styles.image}
-                                source="https://upload.wikimedia.org/wikipedia/en/e/eb/Wolfcreek.png"
+                                source="https://upload.wikimedia.org/wikipedia/en/e/ec/Under_the_gun_1951_poster.jpg"
                                 placeholder={String(blurHash)}
                                 contentFit="cover"
                                 transition={1000}
@@ -34,7 +34,7 @@ export function HomeScreen({navigation}: { navigation: any; }): React.ReactEleme
                         <Card.CardContent className="p-0">
                             <Image
                                 style={styles.image}
-                                source="https://upload.wikimedia.org/wikipedia/en/8/82/MTV_Roadies_official_logo.jpg"
+                                source="https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/DrPlonk.jpg/220px-DrPlonk.jpg"
                                 placeholder={String(blurHash)}
                                 contentFit="cover"
                                 transition={1000}
