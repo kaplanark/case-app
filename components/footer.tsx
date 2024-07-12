@@ -37,11 +37,11 @@ export function Footer(): React.ReactElement | null {
                 </Link>
             </View>
             <View style={styles.buttonsWrapper}>
-                <Button size="icon" variant="ghost" className="rounded-full">
-                    <Lucide.Twitter size={24} color="#ffffff"/>
+                <Button size="icon" variant="ghost" className="rounded-full bg-gray-800">
+                    <Lucide.Twitter size={20} color="#ffffff"/>
                 </Button>
-                <Button size="icon" variant="ghost" className="rounded-full">
-                    <Lucide.Facebook size={24} color="#ffffff"/>
+                <Button size="icon" variant="ghost" className="rounded-full bg-gray-800">
+                    <Lucide.Facebook size={20} color="#ffffff"/>
                 </Button>
             </View>
         </View>
@@ -62,9 +62,9 @@ const styles = StyleSheet.create({
         gap: 8,
     },
     buttonsWrapper: {
-        marginTop: 8,
+        marginTop: 16,
         flexDirection: "row",
         justifyContent: "center",
-        gap: 8,
+        gap: 16,
     },
 });
