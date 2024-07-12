@@ -1,7 +1,6 @@
-export type SortOptions = "new" | "old" | "rate" | "random";
-
 export type FilterType = "movie" | "series";
-export type SortType = "new" | "old" | "random";
+
+export type SortType = "new" | "old" | "random" | "rate";
 
 export interface GlobalResponse {
     status: number;

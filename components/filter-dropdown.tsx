@@ -1,5 +1,5 @@
 import React from 'react';
-import type {SortOptions} from "~/types";
+import type {SortType} from "~/types";
 import {filterOptions} from "~/constants/filterState";
 import {Text} from "react-native";
 import * as DropdownMenu from "~/components/ui/dropdown-menu";
@@ -7,8 +7,8 @@ import {Button} from "~/components/ui/button";
 import {ArrowDownNarrowWide} from "lucide-react-native";
 
 interface FilterDropdownProps {
-    setFilter: (filter: { shorted: SortOptions | null; search: string }) => void;
-    filter: { shorted: SortOptions | null; search: string };
+    setFilter: (filter: { shorted: SortType | null; search: string }) => void;
+    filter: { shorted: SortType | null; search: string };
 }
 
 export function FilterDropdown({setFilter, filter}: FilterDropdownProps): React.ReactElement {
@@ -32,14 +32,14 @@ export function FilterDropdown({setFilter, filter}: FilterDropdownProps): React.
                 className="w-64 native:w-64 rounded-none"
                 align="end">
                 <DropdownMenu.DropdownMenuRadioGroup
-                    onValueChange={(value: SortOptions) => setFilter({...filter, shorted: value})}
-                    value={filter.shorted as SortOptions}>
-                    {filterOptions.map((option: { label: string, value: SortOptions }, index: number) => (
+                    onValueChange={(value: string) => setFilter({...filter, shorted: value as SortType})}
+                    value={filter.shorted as SortType}>
+                    {filterOptions.map((option: { label: string, value: SortType | null }, index: number) => (
                         <DropdownMenu.DropdownMenuRadioItem
-                            value={option.value}
+                            value={option.value as SortType}
                             key={index}
                             onPress={() =>
-                                setFilter({...filter, shorted: option.value})
+                                setFilter({...filter, shorted: option.value as SortType})
                             }>
                             <Text>{option.label}</Text>
                         </DropdownMenu.DropdownMenuRadioItem>

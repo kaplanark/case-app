@@ -16,6 +16,8 @@ export const filterFromSorted = (data:Entry[], shorted:SortType) => {
                 return a['releaseYear'] - b['releaseYear'];
             case "old":
                 return b['releaseYear'] - a['releaseYear'];
+            case "rate":
+                return a['imdbRating'] - b['imdbRating'];
             case "random":
                 return Math.random() - 0.5;
             default:
