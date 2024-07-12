@@ -5,6 +5,7 @@ import { Text } from "react-native";
 import * as DropdownMenu from "~/components/ui/dropdown-menu";
 import { Button } from "~/components/ui/button";
 import { ArrowDownNarrowWide } from "lucide-react-native";
+import { useColorScheme } from "~/hooks/useColorScheme";
 
 interface FilterDropdownProps {
   setFilter: (filter: { shorted: SortType | null; search: string }) => void;
@@ -15,6 +16,8 @@ export function FilterDropdown({
   setFilter,
   filter,
 }: FilterDropdownProps): React.ReactElement {
+
+  const {colorScheme} = useColorScheme();
   return (
     <DropdownMenu.DropdownMenu>
       <DropdownMenu.DropdownMenuTrigger asChild>
@@ -24,8 +27,8 @@ export function FilterDropdown({
           className="flex-row items-center"
           style={{ gap: 6 }}
         >
-          <ArrowDownNarrowWide size={16} color="#000000" />
-          <Text>
+          <ArrowDownNarrowWide size={16} color={colorScheme === "dark" ? "#fff" : "#000"} />
+          <Text className="text-foreground">
             {filterOptions.find((option) => option.value === filter.shorted)
               ?.label || "Sırala"}
           </Text>
@@ -53,7 +56,7 @@ export function FilterDropdown({
                   setFilter({ ...filter, shorted: option.value as SortType })
                 }
               >
-                <Text>{option.label}</Text>
+                <Text className="text-foreground">{option.label}</Text>
               </DropdownMenu.DropdownMenuRadioItem>
             )
           )}

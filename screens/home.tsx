@@ -24,7 +24,7 @@ export function HomeScreen({navigation}: {navigation: any}): React.ReactElement 
   return (
     <ScrollView>
       <View className="flex-1" style={styles.container}>
-        <Text style={styles.title}>Popüler Başlıklar</Text>
+        <Text style={styles.title} className="text-foreground">Popüler Başlıklar</Text>
         {popularTitles.map((item) => (
           <TouchableOpacity
             key={item.type}
@@ -40,8 +40,8 @@ export function HomeScreen({navigation}: {navigation: any}): React.ReactElement 
                   transition={1000}
                 />
               </Card.CardContent>
-              <Card.CardFooter className="items-center bg-foreground pt-3">
-                <Text style={{ fontSize: 18 }} className="text-white">
+              <Card.CardFooter className="bg-foreground pt-3 justify-between">
+                <Text style={{ fontSize: 18,fontWeight:'bold' }} className="text-primary-foreground flex-1 text-center">
                     {item.title}
                 </Text>
               </Card.CardFooter>
