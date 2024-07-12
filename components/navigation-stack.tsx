@@ -20,20 +20,21 @@ import {Footer} from "~/components/footer";
 
 import {Logo} from "~/components/logo";
 
-const LIGHT_THEME: Theme = {
+
+const LIGHT_THEME: Theme = { // Define the light theme for the app.
     dark: false,
     colors: NAV_THEME.light,
 };
-const DARK_THEME: Theme = {
+const DARK_THEME: Theme = { // Define the dark theme for the app.
     dark: true,
     colors: NAV_THEME.dark,
 };
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator() // Create a stack navigator for the app.
 
 SplashScreen.preventAutoHideAsync(); // Prevent the splash screen from auto-hiding before getting the color scheme.
 NavigationBar.setBackgroundColorAsync("#151515").then(); // Set the background color of the navigation bar to white.
-NavigationBar.setButtonStyleAsync("light").then(); 
+NavigationBar.setButtonStyleAsync("light").then(); // Set the button style of the navigation bar to light.
 export function NavigationStack() {
     const queryClient: QueryClient = new QueryClient();
 
@@ -48,6 +49,7 @@ export function NavigationStack() {
                 document.documentElement.classList.add("bg-background");
             }
             if (!theme) {
+                // If the theme is not set, set the theme to the color scheme.
                 await AsyncStorage.setItem("theme", colorScheme);
                 setIsColorSchemeLoaded(true);
                 return;
@@ -55,17 +57,16 @@ export function NavigationStack() {
             const colorTheme = theme === "dark" ? "dark" : "light";
             if (colorTheme !== colorScheme) {
                 setColorScheme(colorTheme);
-
                 setIsColorSchemeLoaded(true);
                 return;
             }
             setIsColorSchemeLoaded(true);
         })().finally(() => {
-            SplashScreen.hideAsync();
+            SplashScreen.hideAsync(); // Hide the splash screen after the color scheme is loaded.
         });
     }, []);
 
-    const screenOptions = {
+    const screenOptions = { // Define the screen options for the stack navigator screens.
         title: "",
         headerStyle: {
             backgroundColor: "#000000",

@@ -1,6 +1,5 @@
 import React from "react";
 import {FlatList, RefreshControl, SafeAreaView, ScrollView, StyleSheet, Text, View} from "react-native";
-import {Input} from "~/components/ui/input";
 import {type SortType} from "~/types";
 import {defaultValues} from "~/constants/filterState";
 import {useQuery} from "@tanstack/react-query";
@@ -14,13 +13,17 @@ import { SearchBar } from "~/components/search-bar";
 export function WatchListScreen({route}:{route:any}): React.ReactElement {
     const {type} = route.params;
 
+    // Fiter for search and sort options for movies list
     const [filter, setFilter] = React.useState<{ shorted: SortType | null; search: string }>(defaultValues);
 
+
+    // Fetch movies data from mock api with tanstack query
     const moviesQuery = useQuery({
         queryKey: ["entries"],
         queryFn: fetchMockData,
     });
 
+    // Filter movies data from search, type and sort options
     const data = React.useMemo(() => {
         if (!moviesQuery.data) return [];
         let result = filterFromType(moviesQuery.data?.entries, type);

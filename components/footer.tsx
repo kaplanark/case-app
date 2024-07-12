@@ -7,12 +7,13 @@ import {Button} from "~/components/ui/button";
 export function Footer(): React.ReactElement | null {
     const [keyboardVisible, setKeyboardVisible] = React.useState(false);
 
+    // Listen for keyboard show and hide events to hide the footer when the keyboard is visible on the screen to prevent overlapping.
     React.useEffect(() => {
         const keyboardDidShowListener:EmitterSubscription = Keyboard.addListener('keyboardDidShow', () => {
-            setKeyboardVisible(true);
+            setKeyboardVisible(true); // Set the keyboard visible state to true when the keyboard is shown.
         });
         const keyboardDidHideListener:EmitterSubscription = Keyboard.addListener('keyboardDidHide', () => {
-            setKeyboardVisible(false);
+            setKeyboardVisible(false); // Set the keyboard visible state to false when the keyboard is hidden.
         });
         return () => {
             keyboardDidHideListener.remove();
@@ -20,7 +21,7 @@ export function Footer(): React.ReactElement | null {
         };
     }, []);
 
-    if (keyboardVisible) return null;
+    if (keyboardVisible) return null; // If the keyboard is visible, return null to hide the footer.
     return (
         <View style={styles.container}>
             <View style={styles.linkWrapper}>

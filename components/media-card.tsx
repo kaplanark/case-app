@@ -24,7 +24,7 @@ export function MediaCard({item}: MediaCardProps): React.ReactElement {
             </Card.CardContent>
             <Card.CardFooter className="bg-foreground p-3">
                 <Text numberOfLines={1} style={styles.title}
-                      className="text-primary-foreground text-center flex-1 text-center">
+                      className="text-primary-foreground text-center flex-1">
                     {item.title}
                 </Text>
             </Card.CardFooter>
