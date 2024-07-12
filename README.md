@@ -2,15 +2,22 @@
 
 A starting point to help you set up your project quickly and use the common components provided by `react-native-reusables`. The idea is to make it easier for you to get started.
 
-## Features
+### From Start
 
-- NativeWind v4
-- Dark and light mode
-    - Android Navigation Bar matches mode
-    - Persistant mode
-- Common components
-    - ThemeToggle, Avatar, Button, Card, Progress, Text, Tooltip
+1. Clone the repository
 
-<img src="https://github.com/mrzachnugent/react-native-reusables/assets/63797719/42c94108-38a7-498b-9c70-18640420f1bc"
-     alt="starter-base-template"
-     style="width:270px;" />
+```bash
+git clone <repo-url>
+```
+
+2. Install dependencies
+
+```bash
+yarn
+```
+
+3. Start the project in development mode (Default os is Android)
+
+```bash
+yarn dev
+```
