@@ -1,7 +1,7 @@
 import React from "react";
 import {FlatList, RefreshControl, SafeAreaView, ScrollView, StyleSheet, Text, View} from "react-native";
 import {Input} from "~/components/ui/input";
-import {type SortOptions} from "~/types";
+import {type SortType} from "~/types";
 import {defaultValues} from "~/constants/filterState";
 import {useQuery} from "@tanstack/react-query";
 import {fetchMockData} from "~/api/mock";
@@ -13,7 +13,7 @@ import {FilterDropdown} from "~/components/filter-dropdown";
 export function WatchListScreen({route}:{route:any}): React.ReactElement {
     const {type} = route.params;
 
-    const [filter, setFilter] = React.useState<{ shorted: SortOptions | null; search: string }>(defaultValues);
+    const [filter, setFilter] = React.useState<{ shorted: SortType | null; search: string }>(defaultValues);
 
     const moviesQuery = useQuery({
         queryKey: ["entries"],
@@ -23,7 +23,7 @@ export function WatchListScreen({route}:{route:any}): React.ReactElement {
     const data = React.useMemo(() => {
         if (!moviesQuery.data) return [];
         let result = filterFromType(moviesQuery.data?.entries, type);
-        result = filterFromSorted(result, filter.shorted);
+        result = filterFromSorted(result, filter.shorted as SortType);
         return filterFromSearch(result, filter.search, 'title');
 
     }, [moviesQuery.data, filter.search, filter.shorted]);
