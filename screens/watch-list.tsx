@@ -56,8 +56,8 @@ export function WatchListScreen({route}:{route:any}): React.ReactElement {
                                 numColumns={2}
                                 scrollEnabled={false}
                             />
-                        ) : moviesQuery.isLoading ? (<Text>Yükleniyor...</Text>) : moviesQuery.isError ? (<Text>Hata oluştu</Text>) : (
-                            <Text>Arama sonucu bulunamadı :(</Text>
+                        ) : moviesQuery.isLoading ? (<Text>Yükleniyor...</Text>) : moviesQuery.isError ? (<Text className="text-foreground">Hata oluştu</Text>) : (
+                            <Text className="text-foreground">Arama sonucu bulunamadı :(</Text>
                         )
                     }
                 </View>
