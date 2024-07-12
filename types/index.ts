@@ -1,5 +1,8 @@
 export type SortOptions = "new" | "old" | "rate" | "random";
 
+export type FilterType = "movie" | "series";
+export type SortType = "new" | "old" | "random";
+
 export interface GlobalResponse {
     status: number;
     message: string;
@@ -7,6 +10,7 @@ export interface GlobalResponse {
 }
 
 export interface Entry {
+    [key: string]: any;
     title: string,
     description: string,
     programType: string,
