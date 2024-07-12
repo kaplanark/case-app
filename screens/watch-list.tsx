@@ -8,6 +8,7 @@ import {fetchMockData} from "~/api/mock";
 import {MediaCard} from "~/components/media-card";
 import {filterFromSearch, filterFromSorted, filterFromType} from "~/utils/filters";
 import {FilterDropdown} from "~/components/filter-dropdown";
+import { SearchBar } from "~/components/search-bar";
 
 
 export function WatchListScreen({route}:{route:any}): React.ReactElement {
@@ -35,18 +36,14 @@ export function WatchListScreen({route}:{route:any}): React.ReactElement {
                     <RefreshControl refreshing={moviesQuery.isFetching} onRefresh={() => moviesQuery.refetch()}/>
                 }>
                 <View style={styles.container}>
-                    <View style={{gap: 16}}>
+                    <View style={{gap: 16,flex:1}}>
                         <View className="flex-row items-center">
                             <Text style={styles.title} className="text-foreground">
                                 Filimler
                             </Text>
                             <FilterDropdown setFilter={setFilter} filter={filter}/>
                         </View>
-                        <Input
-                            value={filter.search}
-                            onChangeText={(value) => setFilter({...filter, search: value})}
-                            placeholder="Film, dizi veya oyuncu ara"
-                        />
+                        <SearchBar filter={filter} setFilter={setFilter}/>
                     </View>
                     {
                         data.length ? (
