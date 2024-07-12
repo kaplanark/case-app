@@ -21,3 +21,10 @@ yarn
 ```bash
 yarn dev
 ```
+
+4. İnstall apk to your device
+
+```bash
+ cd build
+ ```
+ download the apk file to your device and install it.
