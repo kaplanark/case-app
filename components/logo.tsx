@@ -1,18 +1,22 @@
 import * as React from 'react';
-import { View, Image } from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 
 export function Logo(): React.ReactElement {
     return (
-      <View>
-        <Image
-          style={{
-            width: 96,
-            height: 42,
-            objectFit: "contain",
-            resizeMode: "contain",
-          }}
-          source={require("~/assets/images/logo.png")}
-        ></Image>
-      </View>
+        <View>
+            <Image
+                style={styles.logo}
+                source={require("~/assets/images/logo.png")}
+            ></Image>
+        </View>
     );
-  }
+}
+
+const styles = StyleSheet.create({
+    logo: {
+        width: 96,
+        height: 42,
+        objectFit: "contain",
+        resizeMode: "contain",
+    }
+});
