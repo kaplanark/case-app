@@ -42,7 +42,9 @@ export function WatchListScreen({route}:{route:any}): React.ReactElement {
                     <View style={{gap: 16,flex:1}}>
                         <View className="flex-row items-center">
                             <Text style={styles.title} className="text-foreground">
-                                Filimler
+                                {
+                                    type === 'movie' ? 'Filmler' : 'Diziler'
+                                }
                             </Text>
                             <FilterDropdown setFilter={setFilter} filter={filter}/>
                         </View>
